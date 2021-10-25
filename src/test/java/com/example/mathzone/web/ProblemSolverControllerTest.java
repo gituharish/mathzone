@@ -28,6 +28,7 @@ public class ProblemSolverControllerTest {
 	@Test
 	public void test_ShouldReturnMessageFromService() throws Exception {
 		when(service.getSmallestNumberEvenlydivisible("25")).thenReturn("26771144400");
+		
 		this.mockMvc.perform(get("/api/v1/getSmallestDivisibleNum/25")).andDo(print()).andExpect(status().isOk())
 				.andExpect(content().json("{'problem':'25', 'solution':'26771144400'}"));
 		
